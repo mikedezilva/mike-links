@@ -1,7 +1,7 @@
 export const profileData = {
     name: "Mike De Zilva",
     bio: "Code & Sound Producer",
-    avatar: "links-pic.jpg"
+    avatar: "links-pic.jpeg"
 };
 
 export const socialLinks = [

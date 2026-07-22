@@ -1,4 +1,4 @@
-import { profileData, socialLinks, actionLinks, gridLinks } from './data.js';
+import { profileData, socialLinks, featuredVideo, actionLinks, gridLinks } from './data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Set Current Year in Footer
@@ -22,14 +22,71 @@ document.addEventListener('DOMContentLoaded', () => {
         </a>
     `).join('');
 
-    // Render Action Stack
+    // Render Featured Video
+    const videoContainer = document.getElementById('video-container');
+    if (featuredVideo && featuredVideo.url) {
+        videoContainer.innerHTML = `
+            <div class="video-wrapper">
+                <iframe src="${featuredVideo.url}" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        `;
+    } else {
+        videoContainer.style.display = 'none';
+    }
+
+    // Render Action Stack (Links and Dropdowns)
     const actionContainer = document.getElementById('action-container');
-    actionContainer.innerHTML = actionLinks.map(link => `
-        <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="action-btn">
-            <span>${link.title}</span>
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
-    `).join('');
+    actionContainer.innerHTML = actionLinks.map((item, index) => {
+        if (item.type === 'dropdown') {
+            const subLinksHTML = item.subLinks.map(sub => `
+                <a href="${sub.url}" class="sub-link">${sub.title}</a>
+            `).join('');
+            
+            return `
+                <div class="dropdown-container" id="dropdown-${index}">
+                    <button class="dropdown-toggle" aria-expanded="false" aria-controls="content-${index}">
+                        <span>${item.title}</span>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                    </button>
+                    <div class="dropdown-content" id="content-${index}">
+                        ${subLinksHTML}
+                    </div>
+                </div>
+            `;
+        } else {
+            return `
+                <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="action-btn">
+                    <span>${item.title}</span>
+                </a>
+            `;
+        }
+    }).join('');
+
+    // Attach Event Listeners for Dropdowns
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const container = this.parentElement;
+            const content = this.nextElementSibling;
+            
+            // Toggle open class
+            container.classList.toggle('open');
+            
+            // Handle max-height for smooth transition
+            if (container.classList.contains('open')) {
+                content.style.maxHeight = content.scrollHeight + "px";
+                this.setAttribute('aria-expanded', 'true');
+            } else {
+                content.style.maxHeight = null;
+                this.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
 
     // Render Visual Grid
     const gridContainer = document.getElementById('grid-container');

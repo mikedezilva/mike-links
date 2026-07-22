@@ -66,6 +66,44 @@ body {
     display: block;
 }
 
+.banner-badge-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(5, 5, 5, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: var(--transition-fast);
+    z-index: 2;
+}
+
+.banner-badge-btn:hover {
+    background: var(--surface-color);
+    border-color: var(--yelo-primary);
+    color: var(--yelo-primary);
+    transform: translateY(-2px);
+}
+
+.banner-badge-btn .badge-tag {
+    background: var(--yelo-primary);
+    color: var(--bg-color);
+    font-size: 0.6rem;
+    font-weight: 700;
+    padding: 0.15rem 0.4rem;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+}
+
 /* Profile Section */
 .profile {
     text-align: center;

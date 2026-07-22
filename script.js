@@ -1,8 +1,24 @@
-import { profileData, socialLinks, featuredVideo, actionLinks, musicLinks } from './data.js';
+import { profileData, socialLinks, featuredVideo, actionLinks, musicLinks, bannerButton } from './data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Set Current Year in Footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Render Banner Button
+    const bannerWrapper = document.querySelector('.banner-wrapper');
+    if (bannerWrapper && bannerButton && bannerButton.text) {
+        const btn = document.createElement('a');
+        btn.href = bannerButton.url;
+        btn.target = "_blank";
+        btn.rel = "noopener noreferrer";
+        btn.className = "banner-badge-btn";
+        btn.innerHTML = `
+            ${bannerButton.badge ? `<span class="badge-tag">${bannerButton.badge}</span>` : ''}
+            <span>${bannerButton.text}</span>
+            <i class="fa-solid fa-arrow-right" style="font-size: 0.7rem;"></i>
+        `;
+        bannerWrapper.appendChild(btn);
+    }
 
     // Render Profile
     const profileContainer = document.getElementById('profile-container');

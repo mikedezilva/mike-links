@@ -4,6 +4,12 @@ export const profileData = {
     avatar: "links-pic.jpeg"
 };
 
+export const bannerButton = {
+    text: "Read Latest Article",
+    badge: "NEW",
+    url: "https://mikedezilva.com/updates/"
+};
+
 export const socialLinks = [
     { name: "Spotify", icon: "fa-brands fa-spotify", url: "#" },
     { name: "Apple Music", icon: "fa-solid fa-music", url: "#" },

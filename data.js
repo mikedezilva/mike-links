@@ -38,7 +38,7 @@ export const actionLinks = [
     },
     {
         type: "dropdown",
-        title: "A.I and Strategy consulancy..",
+        title: "AI & Strategy Consulting",
         subLinks: [
             { title: "Custom Web Application Development", url: "#" },
             { title: "Music Production & Licensing", url: "#" },

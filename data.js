@@ -11,10 +11,10 @@ export const bannerButton = {
 };
 
 export const socialLinks = [
-    { name: "Spotify", icon: "fa-brands fa-spotify", url: "https://open.spotify.com/artist/5U67pGgjwyqxzaVy0FR9ZA" },
-    { name: "YouTube", icon: "fa-brands fa-youtube", url: "https://www.youtube.com/mikedezilva" },
     { name: "Instagram", icon: "fa-brands fa-instagram", url: "https://www.instagram.com/mikedezilva.cmb/" },
-    { name: "X", icon: "fa-brands fa-x-twitter", url: "https://x.com/MikeDeZilva" }
+    { name: "X", icon: "fa-brands fa-x-twitter", url: "https://x.com/MikeDeZilva" },
+    { name: "YouTube", icon: "fa-brands fa-youtube", url: "https://www.youtube.com/mikedezilva" },
+    { name: "Spotify", icon: "fa-brands fa-spotify", url: "https://open.spotify.com/artist/5U67pGgjwyqxzaVy0FR9ZA" }
 ];
 
 export const featuredVideo = {
@@ -38,7 +38,7 @@ export const actionLinks = [
     },
     {
         type: "dropdown",
-        title: "AI & Strategy Consulting",
+        title: "Enterprise Sound & Code Services",
         subLinks: [
             { title: "Custom Web Application Development", url: "#" },
             { title: "Music Production & Licensing", url: "#" },

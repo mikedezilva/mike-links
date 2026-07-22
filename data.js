@@ -40,8 +40,8 @@ export const actionLinks = [
         type: "dropdown",
         title: "Enterprise Sound & Code Services",
         subLinks: [
-            { title: "Music Production & Licensing", url: "#" },
-            { title: "A.I. Strategy Consulting", url: "#" },
+            { type: "text", title: "Music Production & Licensing" },
+            { type: "text", title: "A.I. Strategy Consulting" },
             { type: "modal", title: "Contact / Inquiries", modalId: "contact-modal" }
         ]
     },

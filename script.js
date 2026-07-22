@@ -71,7 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="dropdown-content" id="content-${index}">
                         ${item.subLinks.map(sub => {
                             if (sub.type === 'modal') {
-                                return `<a href="#" class="sub-link modal-trigger" data-modal="${sub.modalId}">${sub.title}</a>`;
+                                return `<a href="#" class="sub-cta-btn modal-trigger" data-modal="${sub.modalId}">${sub.title}</a>`;
+                            } else if (sub.type === 'text') {
+                                return `<div class="sub-text"><i class="fa-solid fa-check" style="color: var(--yelo-primary); margin-right: 0.5rem; font-size: 0.85em;"></i>${sub.title}</div>`;
                             }
                             return `<a href="${sub.url}" class="sub-link">${sub.title}</a>`;
                         }).join('')}

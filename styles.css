@@ -280,6 +280,31 @@ body {
     background: rgba(255,255,255,0.05);
 }
 
+.sub-text {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sub-cta-btn {
+    margin: 1rem;
+    background: var(--text-primary);
+    color: var(--bg-color) !important;
+    text-align: center;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    padding: 0.8rem;
+    display: block;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.sub-cta-btn:hover {
+    background: var(--yelo-primary);
+}
+
 /* Visual Grid */
 .grid-feed {
     display: grid;

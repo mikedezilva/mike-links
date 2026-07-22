@@ -1,6 +1,9 @@
 import { profileData, socialLinks, featuredVideo, actionLinks, musicLinks, bannerButton } from './data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Force scroll to top on load
+    window.scrollTo(0, 0);
+
     // Set Current Year in Footer
     document.getElementById('year').textContent = new Date().getFullYear();
 

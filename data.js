@@ -7,16 +7,14 @@ export const profileData = {
 export const bannerButton = {
     text: "Read Latest Article",
     badge: "NEW",
-    url: "https://mikedezilva.com/updates/"
+    url: "https://www.mikedezilva.com/updates/behind-music-ep-shane-vincent.html"
 };
 
 export const socialLinks = [
-    { name: "Spotify", icon: "fa-brands fa-spotify", url: "#" },
-    { name: "Apple Music", icon: "fa-solid fa-music", url: "#" },
-    { name: "YouTube", icon: "fa-brands fa-youtube", url: "#" },
-    { name: "Instagram", icon: "fa-brands fa-instagram", url: "#" },
-    { name: "X", icon: "fa-brands fa-x-twitter", url: "#" },
-    { name: "LinkedIn", icon: "fa-brands fa-linkedin", url: "#" }
+    { name: "Spotify", icon: "fa-brands fa-spotify", url: "https://open.spotify.com/artist/5U67pGgjwyqxzaVy0FR9ZA" },
+    { name: "YouTube", icon: "fa-brands fa-youtube", url: "https://www.youtube.com/mikedezilva" },
+    { name: "Instagram", icon: "fa-brands fa-instagram", url: "https://www.instagram.com/mikedezilva.cmb/" },
+    { name: "X", icon: "fa-brands fa-x-twitter", url: "https://x.com/MikeDeZilva" }
 ];
 
 export const featuredVideo = {
@@ -40,7 +38,7 @@ export const actionLinks = [
     },
     {
         type: "dropdown",
-        title: "Enterprise Sound & Code Services",
+        title: "A.I and Strategy consulancy..",
         subLinks: [
             { title: "Custom Web Application Development", url: "#" },
             { title: "Music Production & Licensing", url: "#" },

@@ -66,6 +66,12 @@ body {
     display: block;
 }
 
+@keyframes floatBtn {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
+}
+
 .banner-badge-btn {
     position: absolute;
     top: 1rem;
@@ -85,6 +91,7 @@ body {
     gap: 0.5rem;
     transition: var(--transition-fast);
     z-index: 2;
+    animation: floatBtn 3s ease-in-out infinite;
 }
 
 .banner-badge-btn:hover {

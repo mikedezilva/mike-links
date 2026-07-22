@@ -63,16 +63,17 @@ document.addEventListener('DOMContentLoaded', () => {
     actionContainer.innerHTML = actionLinks.map((item, index) => {
         if (item.type === 'dropdown') {
             return `
-                <div class="dropdown">
-                    <button class="action-btn dropdown-btn">
-                        <span>${item.title}</span> <i class="fa-solid fa-chevron-down"></i>
+                <div class="dropdown-container" id="dropdown-${index}">
+                    <button class="dropdown-toggle" aria-expanded="false" aria-controls="content-${index}">
+                        <span>${item.title}</span>
+                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
                     </button>
-                    <div class="dropdown-content">
+                    <div class="dropdown-content" id="content-${index}">
                         ${item.subLinks.map(sub => {
                             if (sub.type === 'modal') {
-                                return `<a href="#" class="modal-trigger" data-modal="${sub.modalId}">${sub.title}</a>`;
+                                return `<a href="#" class="sub-link modal-trigger" data-modal="${sub.modalId}">${sub.title}</a>`;
                             }
-                            return `<a href="${sub.url}">${sub.title}</a>`;
+                            return `<a href="${sub.url}" class="sub-link">${sub.title}</a>`;
                         }).join('')}
                     </div>
                 </div>

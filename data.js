@@ -1,7 +1,7 @@
 export const profileData = {
     name: "Mike De Zilva",
     bio: "Code & Sound Producer",
-    avatar: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=400&auto=format&fit=crop" // Replace with actual avatar URL
+    avatar: "links-pic.jpg"
 };
 
 export const socialLinks = [
@@ -14,8 +14,7 @@ export const socialLinks = [
 ];
 
 export const featuredVideo = {
-    // Set to a valid YouTube embed URL, or leave empty "" to hide the video section.
-    url: "https://www.youtube.com/embed/jfKfPfyJRdk" // Placeholder Lo-Fi radio
+    url: "https://www.youtube.com/embed/c95_UjAtFo8" 
 };
 
 export const actionLinks = [

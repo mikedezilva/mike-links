@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const profileContainer = document.getElementById('profile-container');
     profileContainer.innerHTML = `
         <div class="avatar-wrapper">
-            <img src="${profileData.avatar}" alt="${profileData.name}" class="avatar">
+            <img src="${profileData.avatar}" alt="${profileData.name}" class="avatar" onerror="this.src='apple-touch-icon.png'">
         </div>
-        <h1>${profileData.name}</h1>
+        <h1>${profileData.name} <i class="fa-solid fa-circle-check" style="color: #1DA1F2; margin-left: 2px; font-size: 0.85em;" title="Verified"></i></h1>
         <p>${profileData.bio}</p>
     `;
 

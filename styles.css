@@ -152,6 +152,7 @@ body {
     cursor: pointer;
     width: 100%;
     position: relative;
+    text-align: center;
 }
 
 .action-btn:hover, .dropdown-toggle:hover {
@@ -166,10 +167,12 @@ body {
 }
 
 .dropdown-toggle {
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .dropdown-icon {
+    position: absolute;
+    right: 1.5rem;
     transition: transform 0.3s ease;
     font-size: 0.85rem;
 }

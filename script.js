@@ -1,4 +1,4 @@
-import { profileData, socialLinks, featuredVideo, actionLinks, gridLinks, musicLinks } from './data.js';
+import { profileData, socialLinks, featuredVideo, actionLinks, musicLinks } from './data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Set Current Year in Footer
@@ -142,15 +142,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Render Visual Grid
-    const gridContainer = document.getElementById('grid-container');
-    gridContainer.innerHTML = gridLinks.map(card => `
-        <a href="${card.url}" target="_blank" rel="noopener noreferrer" class="grid-card">
-            <span class="grid-badge">${card.badge}</span>
-            <img src="${card.image}" alt="${card.title}" loading="lazy">
-            <div class="grid-overlay">
-                <span class="grid-title">${card.title}</span>
-            </div>
-        </a>
-    `).join('');
 });

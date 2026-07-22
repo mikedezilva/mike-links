@@ -53,7 +53,9 @@ body {
     width: 100%;
     border-radius: var(--radius-md);
     overflow: hidden;
-    margin-bottom: -1rem; /* bring profile up slightly */
+    margin-bottom: -60px; /* Pull the profile up */
+    position: relative;
+    z-index: 1;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
@@ -71,13 +73,15 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    position: relative;
+    z-index: 2;
 }
 
 .avatar-wrapper {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     border-radius: var(--radius-full);
-    padding: 2px;
+    padding: 3px;
     background: linear-gradient(135deg, var(--yelo-primary), #ff007b);
 }
 
@@ -86,7 +90,7 @@ body {
     height: 100%;
     border-radius: var(--radius-full);
     object-fit: cover;
-    border: 3px solid var(--bg-color);
+    border: 4px solid var(--bg-color);
 }
 
 .profile h1 {

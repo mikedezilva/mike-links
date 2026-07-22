@@ -49,29 +49,3 @@ export const actionLinks = [
     }
 ];
 
-export const gridLinks = [
-    {
-        title: "Code Architecture",
-        badge: "Article",
-        url: "#",
-        image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&auto=format&fit=crop"
-    },
-    {
-        title: "Studio Setup 2026",
-        badge: "Video",
-        url: "#",
-        image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=600&auto=format&fit=crop"
-    },
-    {
-        title: "New Track Preview",
-        badge: "Music",
-        url: "#",
-        image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=600&auto=format&fit=crop"
-    },
-    {
-        title: "A.I. Tools for Producers",
-        badge: "Guide",
-        url: "#",
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"
-    }
-];

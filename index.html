@@ -27,6 +27,11 @@
 </head>
 <body>
     <main class="container">
+        <!-- Banner Image -->
+        <div class="banner-wrapper">
+            <img src="Banner.jpeg" alt="Banner" class="banner-img" onerror="this.style.display='none'">
+        </div>
+
         <!-- Profile Section -->
         <header class="profile" id="profile-container">
             <!-- Injected by JS -->
@@ -56,6 +61,9 @@
     <footer class="footer">
         <p>&copy; <span id="year"></span> Mike De Zilva. All rights reserved.</p>
     </footer>
+
+    <!-- Modal Container -->
+    <div id="modal-container"></div>
 
     <!-- Script -->
     <script type="module" src="script.js"></script>

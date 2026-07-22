@@ -17,11 +17,20 @@ export const featuredVideo = {
     url: "https://www.youtube.com/embed/c95_UjAtFo8" 
 };
 
+export const musicLinks = {
+    title: "Back at the 120 x Shane Vincent",
+    links: [
+        { name: "Spotify", url: "https://open.spotify.com/track/1JUpb2PmDxylKjnlnqMwXQ?si=469794fc4fd04446", icon: "fa-brands fa-spotify" },
+        { name: "Apple Music", url: "https://music.apple.com/lk/album/back-on-the-120/6792572002?i=6792572003", icon: "fa-brands fa-apple" },
+        { name: "YouTube Music", url: "https://www.youtube.com/watch?v=UaHbDmT5t-s", icon: "fa-brands fa-youtube" }
+    ]
+};
+
 export const actionLinks = [
     { 
-        type: "link", 
-        title: "Latest Release: Shane Vincent EP", 
-        url: "#" 
+        type: "modal", 
+        title: "Latest Release: Back at the 120 x Shane Vincent", 
+        modalId: "music-modal" 
     },
     {
         type: "dropdown",

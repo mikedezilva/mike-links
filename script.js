@@ -1,4 +1,4 @@
-import { profileData, socialLinks, featuredVideo, actionLinks, gridLinks } from './data.js';
+import { profileData, socialLinks, featuredVideo, actionLinks, gridLinks, musicLinks } from './data.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     // Set Current Year in Footer
@@ -58,6 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             `;
+        } else if (item.type === 'modal') {
+            return `
+                <button class="action-btn modal-trigger" data-modal="${item.modalId}">
+                    <span>${item.title}</span>
+                </button>
+            `;
         } else {
             return `
                 <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="action-btn">
@@ -87,6 +93,54 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Render Modal
+    const modalContainer = document.getElementById('modal-container');
+    if (modalContainer && musicLinks) {
+        modalContainer.innerHTML = `
+            <div class="modal-overlay" id="music-modal">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+                    <h3 style="font-family: var(--font-display); font-size: 1.3rem;">${musicLinks.title}</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">Choose your platform</p>
+                    <div class="modal-links">
+                        ${musicLinks.links.map(link => `
+                            <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
+                                <i class="${link.icon}"></i> ${link.name}
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Modal Events
+        const modalTriggers = document.querySelectorAll('.modal-trigger');
+        const modals = document.querySelectorAll('.modal-overlay');
+        const closeBtns = document.querySelectorAll('.modal-close');
+
+        modalTriggers.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modalId = btn.getAttribute('data-modal');
+                document.getElementById(modalId).classList.add('active');
+            });
+        });
+
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.closest('.modal-overlay').classList.remove('active');
+            });
+        });
+
+        // Close on click outside
+        modals.forEach(modal => {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                }
+            });
+        });
+    }
 
     // Render Visual Grid
     const gridContainer = document.getElementById('grid-container');

@@ -1,5 +1,10 @@
 import { profileData, socialLinks, featuredVideo, actionLinks, musicLinks, bannerButton } from './data.js';
 
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 document.addEventListener('DOMContentLoaded', () => {
     // Force scroll to top on load
     window.scrollTo(0, 0);

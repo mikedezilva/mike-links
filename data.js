@@ -43,7 +43,7 @@ export const actionLinks = [
             { title: "Custom Web Application Development", url: "#" },
             { title: "Music Production & Licensing", url: "#" },
             { title: "A.I. Strategy Consulting", url: "#" },
-            { title: "Contact / Book a Call", url: "#" }
+            { type: "modal", title: "Contact / Inquiries", modalId: "contact-modal" }
         ]
     },
     { 

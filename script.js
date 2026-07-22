@@ -62,18 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const actionContainer = document.getElementById('action-container');
     actionContainer.innerHTML = actionLinks.map((item, index) => {
         if (item.type === 'dropdown') {
-            const subLinksHTML = item.subLinks.map(sub => `
-                <a href="${sub.url}" class="sub-link">${sub.title}</a>
-            `).join('');
-            
             return `
-                <div class="dropdown-container" id="dropdown-${index}">
-                    <button class="dropdown-toggle" aria-expanded="false" aria-controls="content-${index}">
-                        <span>${item.title}</span>
-                        <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+                <div class="dropdown">
+                    <button class="action-btn dropdown-btn">
+                        <span>${item.title}</span> <i class="fa-solid fa-chevron-down"></i>
                     </button>
-                    <div class="dropdown-content" id="content-${index}">
-                        ${subLinksHTML}
+                    <div class="dropdown-content">
+                        ${item.subLinks.map(sub => {
+                            if (sub.type === 'modal') {
+                                return `<a href="#" class="modal-trigger" data-modal="${sub.modalId}">${sub.title}</a>`;
+                            }
+                            return `<a href="${sub.url}">${sub.title}</a>`;
+                        }).join('')}
                     </div>
                 </div>
             `;
@@ -115,23 +115,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Render Modal
     const modalContainer = document.getElementById('modal-container');
-    if (modalContainer && musicLinks) {
-        modalContainer.innerHTML = `
-            <div class="modal-overlay" id="music-modal">
+    if (modalContainer) {
+        let modalsHTML = '';
+
+        if (musicLinks) {
+            modalsHTML += `
+                <div class="modal-overlay" id="music-modal">
+                    <div class="modal-content">
+                        <button class="modal-close" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
+                        <h3 style="font-family: var(--font-display); font-size: 1.3rem;">${musicLinks.title}</h3>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem; margin-bottom: 1rem;">Choose your platform</p>
+                        <div class="modal-links">
+                            ${musicLinks.links.map(link => `
+                                <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
+                                    <i class="${link.icon}"></i> ${link.name}
+                                </a>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        modalsHTML += `
+            <div class="modal-overlay" id="contact-modal">
                 <div class="modal-content">
                     <button class="modal-close" aria-label="Close modal"><i class="fa-solid fa-xmark"></i></button>
-                    <h3 style="font-family: var(--font-display); font-size: 1.3rem;">${musicLinks.title}</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.25rem;">Choose your platform</p>
-                    <div class="modal-links">
-                        ${musicLinks.links.map(link => `
-                            <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="modal-link-btn">
-                                <i class="${link.icon}"></i> ${link.name}
-                            </a>
-                        `).join('')}
-                    </div>
+                    <h3 style="font-family: var(--font-display); font-size: 1.3rem;">Get In Touch</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Leave a message and I'll get back to you.</p>
+                    <form id="custom-contact-form" target="hidden_iframe" action="#" method="POST" style="text-align: left;">
+                        <input type="text" name="entry.NAME_ID" placeholder="Your Name" required class="form-input">
+                        <input type="email" name="entry.EMAIL_ID" placeholder="Your Email" required class="form-input">
+                        <textarea name="entry.MESSAGE_ID" placeholder="Your Message" required class="form-input" rows="4"></textarea>
+                        <button type="submit" class="form-submit-btn" onclick="window.submitted=true;">Send Message</button>
+                    </form>
+                    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(typeof window.submitted !== 'undefined' && window.submitted) { alert('Message sent successfully!'); document.getElementById('contact-modal').classList.remove('active'); window.submitted=false; document.getElementById('custom-contact-form').reset(); }"></iframe>
                 </div>
             </div>
         `;
+
+        modalContainer.innerHTML = modalsHTML;
 
         // Modal Events
         const modalTriggers = document.querySelectorAll('.modal-trigger');
